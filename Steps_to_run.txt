@@ -1,0 +1,33 @@
+✅ Create a clean Python environment (recommended)
+
+conda create -n mlopt python=3.10 -y
+conda activate mlopt
+
+# Install core ML and profiling packages
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install onnx onnxruntime-gpu
+pip install line_profiler Pillow
+
+✅ Run profiling and optimization steps
+
+1. Export PyTorch model to ONNX
+   python export_onnx.py
+
+2. Build TensorRT engine (make sure trtexec is in PATH)
+   trtexec --onnx=resnet18.onnx --saveEngine=resnet18_fp16.trt --fp16
+
+3. Run PyTorch profiler
+   python profiler_resnet.py
+
+4. Benchmark DataLoader performance
+   python data_loader_test.py
+
+5. Compare FP16 vs FP32 outputs
+   python low_precision_test.py
+
+6. Run modular inference pipeline
+   python modular_pipeline.py
+
+7. Run line-by-line Python profiling
+   kernprof -l line_profile_example.py
+   python -m line_profiler line_profile_example.py.lprof
