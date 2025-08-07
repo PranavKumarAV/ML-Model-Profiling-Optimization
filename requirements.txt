@@ -1,4 +1,15 @@
-torch
-torchvision
-Pillow
+# requirements.txt
+
+# PyTorch 2.3.0 with CUDA 12.1 (CUDA 12.4 is compatible)
+torch==2.3.0+cu121
+torchvision==0.18.0+cu121
+torchaudio==2.3.0+cu121
+--extra-index-url https://download.pytorch.org/whl/cu121
+
+# ONNX + runtime for TensorRT integration
+onnx
+onnxruntime-gpu
+
+# Profiling and utility tools
 line_profiler
+Pillow

@@ -62,9 +62,7 @@ Run the following commands in your terminal:
 
 Use the following pip commands:
 
-- `pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118`  
-- `pip install onnx onnxruntime-gpu`  
-- `pip install line_profiler Pillow`
+- `pip install -r requirements.txt`
 
 ---
 
